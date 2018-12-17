@@ -6,31 +6,25 @@ module.exports = {
     url: 'https://nbyodai.me',
     title: 'Blog by Chibuzor Obiora',
     subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+      'Lead Developer at Jara Mobile. Topics are the meeting point between tech and philoshopy.',
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
       {
-        label: 'Articles',
+        label: 'Home',
         path: '/',
       },
       {
         label: 'About me',
         path: '/about/',
       },
-      {
-        label: 'Contact me',
-        path: '/contact/',
-      },
     ],
     author: {
       name: 'Chibuzor Obiora',
       email: 'nbyodai@gmail.com',
-      telegram: '#',
       twitter: 'nbyodai',
       github: 'nbyodai',
-      rss: '#',
-      vk: '#',
+      // rss: '#',
     },
   },
   plugins: [
