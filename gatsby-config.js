@@ -6,7 +6,7 @@ module.exports = {
     url: 'https://nbyodai.me',
     title: 'Blog by Chibuzor Obiora',
     subtitle:
-      'Lead Developer at Jara Mobile. Topics are the meeting point between tech and philoshopy.',
+      'Lead Developer at Jara Mobile. Covering topics at the intersection of tech and amateur philoshopy.',
     copyright: '© All rights reserved.',
     disqusShortname: '',
     menu: [
