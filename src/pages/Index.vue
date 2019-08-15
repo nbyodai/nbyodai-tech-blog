@@ -2,11 +2,18 @@
   <Layout class="bg-white">
     <main>
       <header>
-        <div class="max-w-xl md:max-w-3xl xl:max-w-4xl mx-auto text-center px-6 py-10 md:py-32 border-b border-gray-300">
+        <div
+          class="max-w-xl md:max-w-3xl xl:max-w-4xl mx-auto text-center px-6 py-10 md:py-20 border-b border-gray-300"
+        >
+          <img
+            src="/images/authors/socials.jpeg"
+            alt="logo"
+            class="rounded-full mx-auto w-20 xs:w-32 md:w-48"
+          />
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold mb-1">
-            <g-link to="/" class="text-black">Bleda</g-link>
+            <g-link to="/" class="text-black">Nbyodai.me</g-link>
           </h1>
-          <p class="text-gray-700 text-lg sm:text-3xl">Thoughts, stories, and ideas.</p>
+          <p class="text-gray-700 text-lg sm:text-3xl">Technology, Stories, and Ideas.</p>
         </div>
       </header>
       <section>
@@ -19,22 +26,22 @@
 </template>
 
 <script>
-import config from '~/.temp/config.js'
-import SiteFooter from '@/components/Footer'
-import PostItem from '@/components/PostItem'
-import Pagination from '@/components/Pagination'
+import config from "~/.temp/config.js";
+import SiteFooter from "@/components/Footer";
+import PostItem from "@/components/PostItem";
+import Pagination from "@/components/Pagination";
 
 export default {
   components: {
     PostItem,
     Pagination,
-    SiteFooter,
+    SiteFooter
   },
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.config.siteName,
       meta: [
-        { property: "og:type", content: 'website' },
+        { property: "og:type", content: "website" },
         { property: "og:title", content: this.config.siteName },
         { property: "og:description", content: this.config.siteDescription },
         { property: "og:url", content: this.config.siteUrl },
@@ -45,19 +52,19 @@ export default {
         { name: "twitter:description", content: this.config.siteDescription },
         { name: "twitter:site", content: "@cossssmin" },
         { name: "twitter:creator", content: "@cossssmin" },
-        { name: "twitter:image", content: this.ogImageUrl },
-      ],
-    }
+        { name: "twitter:image", content: this.ogImageUrl }
+      ]
+    };
   },
   computed: {
-    config () {
-      return config
+    config() {
+      return config;
     },
-    ogImageUrl () {
-      return `${this.config.siteUrl}/images/bleda-card.png`
+    ogImageUrl() {
+      return `${this.config.siteUrl}/images/bleda-card.png`;
     }
-  },
-}
+  }
+};
 </script>
 
 <page-query>

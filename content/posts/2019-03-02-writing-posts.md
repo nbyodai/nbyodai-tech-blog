@@ -1,193 +1,119 @@
 ---
-title: "Writing posts"
-description: "Writing posts in Markdown with Bleda for Gridsome"
-date: 2019-02-28 15:16:11
-author: gridsome
-slug: writing-posts-markdown
+title: "Love and HTTPS"
+description: "Adding https to my girlfriend's blog."
+date: 2019-08-13 15:00:00
+author: Chibuzor Obiora
+slug: love-and-https
 tags:
-    - getting-started
-    - content
-cover: https://images.unsplash.com/photo-1539815913963-92c9bfeb9d1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&h=900&crop=bottom&q=80
+    - technology
+    - ssl
+    - letsencrypt
+cover: ''
+fullscreen: true
 ---
+So, a few days ago, I get a message from bae and it read, "Babe, something went wrong. My blog is down. Please help me put it back up. Nkem". Now if you know Igbo, the language and its people, then you know that "Nkem" is one of the greatest terms of endearment.
 
-The starter uses Gridsome's filesystem source plugin, which means blog posts are Markdown files that exist in the `/content/posts` directory. 
+My mission was manifest. Love had summoned me and, my task was clear.
 
-## Creating a new post
+I visited her blog and realized the problem; the site's SSL certificate had expired.
 
-There are 2 ways you can create a new post with Bleda:
+*Back up. So this is your first post? Really?*
 
-1. Simply add a new, uniquely-named `*.md` file in the `/content/posts` directory - duh!
-2. In your terminal, navigate to the project root and run this command: 
+*Yes, really. And you want to know why?*
 
-    ```sh
-    npm run newpost "My post title"
-    ``` 
-    
-    The quotes around the title are mandatory. 
-    
-    This will create a new file named `YYYY-MM-DD-my-post-title.md` under `/content/posts`.
+*S.O.T.I once said that "If you want to write, write what you know."
 
-## Supported Front Matter keys
+What do I know? A few things.
+* HTTPS is critical for the modern web. 
+* You can obtain authentic SSL certificates for free. Thanks to [Let’s Encrypt](https://letsencrypt.org/getting-started/).
+* And bae loves me. :-)
 
-You can use the following Front Matter keys when creating a post:
+With all of that knowledge, I got to fix it and, then write about how I did it. Should love and https ever come calling for you.
 
-```yaml
----
-title: "Post title" # required
-slug: post-title-custom-url # optional, override the auto-generated post slug
-description: "Lorem ipsum description sit amet" # required, used in meta tags and RSS feed
-date: 2019-03-01 17:54:43 # required; time is optional, but recommended for the <time> tag and better post sorting control
-author: bleda # optional
-tags: ['markdown', 'design'] # optional
-cover: https://example.com/path/to/cover/image.jpg # optional parallax post cover image
-fullscreen: false # optional - when `true`, makes parallax cover image take up full viewport height
-excerpt: "Custom excerpt to show in archive pages" # optional
----
+
+### CLI aka School of the Hard Knocks
+What you will need:
+* <strong>certbot</strong> installed on your system
+* <strong>Access</strong> to the cPanel for the site
+* Your <strong>wits</strong> about you
+  
+With your access to the cPanel, find your to the File Manager
+
+Then make sure you can access the `public` folder. This is typically where the part of the website that is shown to the world is kept. 
+
+Within this part, create a folder called this directory structure if it does not exist 
 ```
-
-## Markdown syntax & styling
-
-This is a short guide to using Markdown - see the [full spec](https://daringfireball.net/projects/markdown/syntax), or check out [how Bleda styles it](/markdown-styling/).
-
-### Formatting text
-
-#### Headings
-
-```markdown
-# This is an H1
-
-## This is an H2
-
-###### This is an H6
+   .well-known/acme-challenge/
 ```
+You leave this open, you'll be adding a very important file here.
 
-#### Paragraphs
-
-A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines. (A blank line is any line that looks like a blank line — a line containing nothing but spaces or tabs is considered blank.) 
-
-Normal paragraphs should not be indented with spaces or tabs.
-
-#### Inline elements
-
-Make text:
-
-- **bold**: `**bold text**`
-- _italic_: `_italic text_`
-- ~~strikethrough~~: `~~strikethrough text~~`
-- <mark>highlighted</mark>: `<mark>highlighted text</mark>`
-- [link](https://example.com): `[link text](https://example.com)`
-
-For links, you can also use the [reference-style](https://daringfireball.net/projects/markdown/syntax#link):
-
-```markdown
-[link text][id] reference-style link.
-[id]: https://example.com/  "Optional Title Here"
+run
 ```
-
-#### Lists
-
-Unordered:
-
-```markdown
-- one
-- two 
-- three
+    certbot --version
 ```
-
-Ordered:
-
-```markdown
-1. one
-2. two
-3. three
+Mine gives this
 ```
-
-#### Blockquotes
-
-```markdown
-> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere. 
+    certbot 0.36.0
 ```
+to let you know that it is installed. Also go [here](https://certbot.eff.org/instructions) to learn how you can install certbot.
 
-### Inserting Images
 
-Local images are added with `![Image alt text](./images/image.jpg)`
-
-Of course, you can reference images from a CDN: 
-
-`![Image alt text](https://example.com/image.jpg)`
-
-#### Linking images
-
-With Markdown, do: `[![Image alt text](https://example.com/path/to/image.jpg)](url to link to)`
-
-### Dividing sections
-
-Any of the following:
-
-```markdown
-* * *
-
-***
-
-*****
-
-- - -
-
----
-
----------------------------------------
-```
-
-... will create a `<hr>` like this one:
-
----
-
-### Code blocks
-
-Both inline code and fenced codeblocks are supported.
-
-To write inline code `like this` simply surround it with backticks: \`some inline code\`
-
-#### Fenced codeblocks
-
-Surround your code with triple backticks, like this:
-
-```markdown
-    ```language
-    your code here
-    ```
-```
-
-Specify the language ([reference](https://github.com/octref/shiki/blob/master/packages/languages/src/lang.ts)) in order to get proper syntax highlighting:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <p>Lorem ipsum</p>
-</body>
-</html>
-```
-
-If you don't specify a language, the code block will not be wrapped in a `<pre>` tag, and will look like this:
+> Now for the good stuff. Follow closely on your terminal 
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <p>Lorem ipsum</p>
-</body>
-</html>
+certbot certonly -d <YOUR DOMAIN HERE> --manual -m <YOUR EMAIL HERE> --agree-tos
+
 ```
 
----
+The domain name is the what you want the SSL certificate for. The email address is for notifications related to the status of the certificate. 
 
-Cover photo by [Joyce McCown](https://unsplash.com/photos/h4BIz4rPPy0).
+Now, on running this command, it will pause and ask that you create a file on your webserver that it can access. With instructions looking like this
+
+![Certbot instructions](/images/posts/example-com-intructions.png)
+
+This means that you create a file with file name `hPL3AQ4EJNPcFwkOVDXkMnCOoGyGXlEG7IWERwIN4Lk` in this example case. And have its contents be exactly `hPL3AQ4EJNPcFwkOVDXkMnCOoGyGXlEG7IWERwIN4Lk.Q4nCIb-goUnTjeoDaIJrGQLzXUcfD1wKt-KENHYlgp0`
+
+That is all. 
+
+Remember our folder `.well-known/acme-challenge/` inside our file manager. 
+
+Go back to it and create the file with the name and edit the contents accordingly. Make sure to save it.
+
+When you're done come back to your terminal and hit "Enter". Certbot on your terminal will make a request to that url and sees if the content it receives matches what it is expecting.
+
+if it all goes according to plan, certbot will two files; a certificate `fullchain.pem` and also a private key `privkey.pem`
+
+Copy the contents and one way is to use `cat` command
+
+As in
+```
+cat /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem
+
+```  
+it might generate two so make sure to only copy from one (inclusive)
+```
+-----BEGIN CERTIFICATE-----
+
+```
+  to 
+```
+-----END CERTIFICATE----- 
+```
+I copied the first block and did the same for private key.
+
+```
+cat /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem
+```
+
+Only one thing left to do and, that is to host the copied text on the webserver.
+
+And to do that you'll have to locate SSL/TLS manager and head into where you can manage your sites. 
+
+Look for where to manually register certificates; add your domain name and then make sure you add the certificate text to the certificate slot
+and private key text to the private key slot. 
+
+Save and, that should be that. 
+
+*Lets Encrypt provides direct integrations to a few providers. See [here](https://community.letsencrypt.org/t/web-hosting-who-support-lets-encrypt/6920) if you are one of the lucky ones.
+*SOTI - Someone On The Internet
+### SSL for free

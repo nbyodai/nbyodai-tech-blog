@@ -30,7 +30,7 @@
               class="border-b border-transparent hover:border-gray-400 transition-border-color"
             >About</g-link>
           </li>
-          <li class="px-2">
+          <!-- <li class="px-2">
             <a
               href="/sitemap.xml"
               class="border-b border-transparent hover:border-gray-400 transition-border-color"
@@ -41,7 +41,7 @@
               href="/feed.xml"
               class="border-b border-transparent hover:border-gray-400 transition-border-color"
             >RSS Feed</a>
-          </li>
+          </li>-->
         </ul>
       </nav>
     </div>

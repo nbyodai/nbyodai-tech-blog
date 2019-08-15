@@ -63,14 +63,14 @@ export default {
         {
           key: "description",
           name: "description",
-          content: "Introduction to the Bleda blog starter for Gridsome."
+          content: "Nbyodai, a tech blog."
         },
 
         { property: "og:type", content: "article" },
         { property: "og:title", content: "About" },
         {
           property: "og:description",
-          content: "Introduction to the Bleda blog starter for Gridsome."
+          content: "Nbyodai, a tech blog."
         },
         { property: "og:url", content: `${this.config.siteUrl}/about/` },
         { property: "og:image", content: "/images/bleda-card.png" },
@@ -79,7 +79,7 @@ export default {
         { name: "twitter:title", content: "About" },
         {
           name: "twitter:description",
-          content: "Introduction to the Bleda blog starter for Gridsome."
+          content: "Nbyodai, a tech blog."
         },
         { name: "twitter:site", content: "@cossssmin" },
         { name: "twitter:creator", content: "@cossssmin" },
