@@ -28,7 +28,9 @@ What do I know? A few things.
 * You can obtain authentic SSL certificates for free. Thanks to [Let’s Encrypt](https://letsencrypt.org/getting-started/).
 * And bae loves me. :-)
 
-With all of that knowledge, I got to fix it and, then write about how I did it. Should love and https ever come calling for you.
+With all of that knowledge, I got to fixing it and, then decided to write about how I did it. 
+
+Should love and https ever come calling for you. ;-)
 
 
 ### CLI aka School of the Hard Knocks
@@ -37,15 +39,17 @@ What you will need:
 * <strong>Access</strong> to the cPanel for the site
 * Your <strong>wits</strong> about you
   
-With your access to the cPanel, find your to the File Manager
+With your access to the cPanel, find your way to the File Manager
 
-Then make sure you can access the `public` folder. This is typically where the part of the website that is shown to the world is kept. 
+Then make sure you can access the `public` folder. This is typically the part of the website that is shown to the world. 
 
-Within this part, create a folder called this directory structure if it does not exist 
+Within this part, create this directory structure if it does not exist 
 ```
    .well-known/acme-challenge/
 ```
-You leave this open, you'll be adding a very important file here.
+Make sure to leave this window open because later you'll be adding a very important file here.
+
+> Now for the good stuff. Follow closely on your terminal
 
 run
 ```
@@ -55,10 +59,8 @@ Mine gives this
 ```
     certbot 0.36.0
 ```
-to let you know that it is installed. Also go [here](https://certbot.eff.org/instructions) to learn how you can install certbot.
+To let you know that certbot is installed. Please go [here](https://certbot.eff.org/instructions) to learn how you can install certbot.
 
-
-> Now for the good stuff. Follow closely on your terminal 
 
 ```
 certbot certonly -d <YOUR DOMAIN HERE> --manual -m <YOUR EMAIL HERE> --agree-tos
