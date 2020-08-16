@@ -11,7 +11,7 @@
             class="rounded-full mx-auto w-20 xs:w-32 md:w-48"
           />
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-sans font-bold mb-1">
-            <g-link to="/" class="text-black">Nbyodai.me</g-link>
+            <g-link to="/" class="text-black">nbyodai.me</g-link>
           </h1>
           <p class="text-gray-700 text-lg sm:text-3xl">Technology, Stories, and Ideas.</p>
         </div>
@@ -35,7 +35,7 @@ export default {
   components: {
     PostItem,
     Pagination,
-    SiteFooter
+    SiteFooter,
   },
   metaInfo() {
     return {
@@ -52,8 +52,8 @@ export default {
         { name: "twitter:description", content: this.config.siteDescription },
         { name: "twitter:site", content: "@cossssmin" },
         { name: "twitter:creator", content: "@cossssmin" },
-        { name: "twitter:image", content: this.ogImageUrl }
-      ]
+        { name: "twitter:image", content: this.ogImageUrl },
+      ],
     };
   },
   computed: {
@@ -62,8 +62,8 @@ export default {
     },
     ogImageUrl() {
       return `${this.config.siteUrl}/images/bleda-card.png`;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -100,4 +100,3 @@ export default {
     }
   }
 </page-query>
-
